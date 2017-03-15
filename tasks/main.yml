@@ -11,10 +11,10 @@
   yum:
     name: "https://{{ ius_distribution_abbrev }}{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm"
     state: present
-  when: ius_repofile_result.stat.exists
+  when: not ius_repofile_result.stat.exists
 
 - name: Import IUS GPG key
   rpm_key:
     key: /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
     state: present
-  when: ius_repofile_result.stat.exists
+  when: not ius_repofile_result.stat.exists
