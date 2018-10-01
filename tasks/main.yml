@@ -4,7 +4,8 @@
     path: /etc/yum.repos.d/ius.repo
   register: ius_repofile_result
 
-- set_fact:
+- name: Configure IUS variables
+  set_fact:
     ius_distribution_abbrev: "{{ (ansible_distribution == 'CentOS') | ternary('centos', 'rhel') }}"
 
 - name: Install IUS repo
