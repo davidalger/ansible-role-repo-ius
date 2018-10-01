@@ -11,7 +11,7 @@
 - name: Install IUS repo
   yum:
     name: |
-      "https://{{ ius_distribution_abbrev }}{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm"
+      https://{{ ius_distribution_abbrev }}{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm
     state: present
   when: not ius_repofile_result.stat.exists
 
