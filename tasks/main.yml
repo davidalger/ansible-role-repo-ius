@@ -15,6 +15,23 @@
     state: present
   when: not ius_repofile_result.stat.exists
 
+- name: Copy old GPG key for older packages
+  copy:
+    src: files/IUS-COMMUNITY-GPG-KEY
+    dest: /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Import old IUS GPG key
+  rpm_key:
+    key: /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+    state: present
+  when: not ius_repofile_result.stat.exists
+
+# You can validate installed GPG keys with this command:
+# rpm -q --queryformat "%{SUMMARY}\n" gpg-pubkey
+
 - name: Import IUS GPG key
   rpm_key:
     key: /etc/pki/rpm-gpg/RPM-GPG-KEY-IUS-7
