@@ -25,7 +25,7 @@
 
 - name: Import old IUS GPG key
   rpm_key:
-    key: /etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-IUS-{{ ansible_distribution_major_version }}
     state: present
   when: not ius_repofile_result.stat.exists
 
