@@ -1,6 +1,6 @@
 # Ansible Role: RPM for IUS Community Project
 
-[![Build Status](https://travis-ci.org/davidalger/ansible-role-repo-ius.svg?branch=master)](https://travis-ci.org/davidalger/ansible-role-repo-ius)
+[![Build Status](https://travis-ci.com/davidalger/ansible-role-repo-ius.svg?branch=master)](https://travis-ci.com/davidalger/ansible-role-repo-ius)
 
 Installs repo for [IUS Community Project](http://ius.io) on RHEL / CentOS 7 and 6.
 
